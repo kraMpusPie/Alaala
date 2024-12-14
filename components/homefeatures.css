@@ -1,0 +1,108 @@
+.homefeatures-layout251 {
+  width: 100%;
+  height: 830px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.homefeatures-max-width {
+  gap: var(--dl-space-space-threeunits);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.homefeatures-column {
+  gap: var(--dl-space-space-halfunit);
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.homefeatures-text {
+  font-size: 12px;
+}
+.homefeatures-content {
+  gap: 48px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.homefeatures-row {
+  align-items: flex-start;
+}
+.homefeatures-feature1 {
+  flex: 1;
+}
+.homefeatures-content1 {
+  align-self: stretch;
+  align-items: flex-start;
+}
+.homefeatures-feature2 {
+  flex: 1;
+}
+.homefeatures-content2 {
+  align-self: stretch;
+  align-items: flex-start;
+}
+.homefeatures-feature3 {
+  flex: 1;
+}
+.homefeatures-content3 {
+  align-self: stretch;
+  align-items: flex-start;
+}
+.homefeatures-actions {
+  gap: var(--dl-space-space-unit);
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  display: flex;
+  align-items: flex-start;
+}
+@media(max-width: 991px) {
+  .homefeatures-section-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .homefeatures-feature1-image {
+    height: 260px;
+  }
+  .homefeatures-feature2-image {
+    height: 260px;
+  }
+  .homefeatures-feature3-image {
+    height: 260px;
+  }
+}
+@media(max-width: 767px) {
+  .homefeatures-column {
+    width: 100%;
+  }
+  .homefeatures-text1 {
+    text-align: center;
+  }
+  .homefeatures-row {
+    flex-direction: column;
+  }
+  .homefeatures-feature1-image {
+    width: 100%;
+  }
+  .homefeatures-feature2 {
+    width: auto;
+  }
+  .homefeatures-feature2-image {
+    width: 100%;
+  }
+  .homefeatures-feature3 {
+    width: auto;
+  }
+  .homefeatures-actions {
+    flex-wrap: wrap;
+  }
+}
+@media(max-width: 479px) {
+  .homefeatures-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+}

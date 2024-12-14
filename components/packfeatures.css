@@ -1,0 +1,110 @@
+.packfeatures-layout251 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.packfeatures-max-width {
+  gap: var(--dl-space-space-threeunits);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.packfeatures-column {
+  gap: var(--dl-space-space-halfunit);
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.packfeatures-content {
+  gap: 48px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.packfeatures-row {
+  align-items: flex-start;
+}
+.packfeatures-feature1 {
+  flex: 1;
+}
+.packfeatures-content1 {
+  align-self: stretch;
+  align-items: flex-start;
+}
+.packfeatures-feature2 {
+  flex: 1;
+}
+.packfeatures-content2 {
+  align-self: stretch;
+  align-items: flex-start;
+}
+.packfeatures-feature3 {
+  flex: 1;
+}
+.packfeatures-content3 {
+  align-self: stretch;
+  align-items: flex-start;
+}
+.packfeatures-actions {
+  gap: var(--dl-space-space-unit);
+  display: flex;
+  align-items: flex-start;
+}
+@media(max-width: 991px) {
+  .packfeatures-section-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .packfeatures-feature1-image {
+    height: 260px;
+  }
+  .packfeatures-feature2-image {
+    height: 260px;
+  }
+  .packfeatures-feature3-image {
+    height: 260px;
+  }
+}
+@media(max-width: 767px) {
+  .packfeatures-column {
+    width: 100%;
+  }
+  .packfeatures-text1 {
+    text-align: center;
+  }
+  .packfeatures-row {
+    flex-direction: column;
+  }
+  .packfeatures-feature1-image {
+    width: 100%;
+  }
+  .packfeatures-feature2 {
+    width: auto;
+  }
+  .packfeatures-feature2-image {
+    width: 100%;
+  }
+  .packfeatures-feature3 {
+    width: auto;
+  }
+  .packfeatures-actions {
+    flex-wrap: wrap;
+  }
+}
+@media(max-width: 479px) {
+  .packfeatures-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .packfeatures-button {
+    width: 100%;
+  }
+  .packfeatures-button1 {
+    width: 100%;
+  }
+}

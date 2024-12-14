@@ -1,0 +1,138 @@
+.logos9-container {
+  gap: var(--dl-space-space-threeunits);
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
+.logos9-max-width {
+  gap: var(--dl-space-space-twounits);
+  width: 409px;
+  height: 75px;
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.logos9-text {
+  left: -62px;
+  width: 444px;
+  bottom: -9px;
+  height: 72px;
+  position: absolute;
+  align-self: flex-start;
+  text-align: center;
+}
+.logos9-container1 {
+  width: 100%;
+}
+.logos9-image {
+  width: 118px;
+  height: 118px;
+  object-fit: contain;
+}
+.logos9-image01 {
+  width: 113px;
+  height: 104px;
+  object-fit: cover;
+}
+.logos9-image02 {
+  width: 342px;
+  height: 71px;
+  object-fit: cover;
+}
+.logos9-image03 {
+  width: 244px;
+  height: 71px;
+  object-fit: cover;
+}
+.logos9-image04 {
+  width: 200px;
+  object-fit: cover;
+}
+.logos9-image05 {
+  width: 200px;
+  object-fit: cover;
+}
+.logos9-image06 {
+  width: 118px;
+  height: 118px;
+  object-fit: contain;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.logos9-image07 {
+  width: 113px;
+  height: 104px;
+  object-fit: cover;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.logos9-image08 {
+  width: 342px;
+  height: 71px;
+  object-fit: cover;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.logos9-image09 {
+  width: 244px;
+  height: 71px;
+  object-fit: cover;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.logos9-image10 {
+  width: 200px;
+  object-fit: cover;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.logos9-image11 {
+  width: 200px;
+  object-fit: cover;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.logos9-container5 {
+  display: contents;
+}
+@media(max-width: 767px) {
+  .logos9-container {
+    gap: var(--dl-space-space-twounits);
+  }
+  .logos9-max-width {
+    gap: var(--dl-space-space-twounits);
+  }
+}
+
+.homecontact-contact20 {
+  width: 1920px;
+  height: 504px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
+.homecontact-max-width {
+  gap: var(--dl-space-space-twounits);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.homecontact-root-class-name {
+  left: 0px;
+  bottom: 508px;
+  position: static;
+  margin-top: -235px;
+}
+.homecontact-root-class-name1 {
+  left: 0px;
+  bottom: 508px;
+  position: static;
+  margin-top: -235px;
+}

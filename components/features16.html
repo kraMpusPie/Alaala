@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Alaala</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background-color: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+    <style>
+      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
+          display: flex;
+        }
+
+        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
+          transform: rotate(90deg);
+        }
+    </style>
+  </head>
+  <body>
+    <link rel="stylesheet" href="../style.css" />
+    <div>
+      <link href="./features16.css" rel="stylesheet" />
+      <div class="features16-layout300 thq-section-padding">
+        <div class="features16-max-width thq-section-max-width">
+          <div class="features16-section-title">
+            <div class="features16-content">
+              <h2 class="features16-text thq-heading-2">
+                <span>Livestream 1</span>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="features16-container">
+          <div class="features16-container1">
+            <style>
+              #livestreamContainer {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100vh;
+              }
+              #livestreamContent {
+                  text-align: center;
+                  margin-top: 20px;
+              }
+              form {
+                  text-align: center;
+                  margin-bottom: 20px;
+              }
+              #livestreamUrl {
+                  padding: 10px;
+                  width: 300px;
+                  font-size: 16px;
+              }
+              #embedButton {
+                  padding: 10px 20px;
+                  font-size: 16px;
+                  background-color: #007bff;
+                  color: #fff;
+                  border: none;
+                  cursor: pointer;
+              }
+              #placeholder {
+                  text-align: center;
+                  padding: 20px;
+              }
+              #placeholder img {
+                  max-width: 100%;
+                  height: auto;
+              }
+              iframe {
+                  width: 720px;
+                  height: 480px;
+                  margin: 0 auto;
+                  display: block;
+              }
+            </style>
+
+            <script>
+              function embedPersistedLivestream() {
+                  var storedVideoId = localStorage.getItem('livestream1VideoId');
+                  if (storedVideoId) {
+                      embedLivestreamById(storedVideoId);
+                  } else {
+                      displayLivestreamPlaceholder();
+                  }
+              }
+
+              function embedLivestream() {
+                  var url = document.getElementById('livestreamUrl').value;
+                  var videoId = getYouTubeVideoID(url);
+                  if (videoId) {
+                      embedLivestreamById(videoId);
+                      localStorage.setItem('livestream1VideoId', videoId);
+                      document.getElementById('livestreamForm').reset();
+                  } else {
+                      alert('Please enter a valid YouTube livestream URL.');
+                  }
+              }
+
+              function embedLivestreamById(videoId) {
+                  var embedUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+                  var iframeCode = `<iframe width='720' height='480' src='${embedUrl}' frameborder='0' allowfullscreen></iframe>`;
+                  document.getElementById('placeholder').innerHTML = iframeCode;
+              }
+
+              function displayLivestreamPlaceholder() {
+                  document.getElementById('placeholder').innerHTML = `
+                      <img src='berightback.jpg' alt='Upcoming Livestream'>
+                      <p>Upcoming Livestream: Check back later!</p>`;
+              }
+
+              function getYouTubeVideoID(url) {
+                  var videoId = null;
+                  var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|live\/|watch\?v=|&v=|watch\?live_stream=)([^#&?]*).*/;
+                  var match = url.match(regExp);
+                  if (match && match[2].length === 11) {
+                      videoId = match[2];
+                  }
+                  return videoId;
+              }
+
+              window.onload = embedPersistedLivestream;
+            </script>
+
+            <div id="livestreamContainer">
+              <div id="livestreamContent">
+                <form
+                  id="livestreamForm"
+                  onsubmit="event.preventDefault(); embedLivestream()"
+                >
+                  <input
+                    type="text"
+                    id="livestreamUrl"
+                    placeholder="Enter YouTube livestream URL"
+                    required=""
+                  />
+                  <button type="submit" id="embedButton">
+                    Embed Livestream
+                  </button>
+                </form>
+                <div id="placeholder">
+                  <img src="berightback.jpg" alt="Upcoming Livestream" />
+                  <p>Upcoming Livestream: Check back later!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      defer=""
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+.abtbanner-container {
+  gap: var(--dl-space-space-unit);
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.abtbanner-image {
+  width: 200px;
+  object-fit: cover;
+}
+.abtbanner-max-width {
+  gap: var(--dl-space-space-oneandhalfunits);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.abtbanner-container1 {
+  gap: var(--dl-space-space-halfunit);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.abtbanner-title {
+  text-align: center;
+}
+.abtbanner-text {
+  text-align: center;
+}

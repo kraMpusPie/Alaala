@@ -1,0 +1,310 @@
+<script
+  src="https://js.sentry-cdn.com/4d8393d0a8ce6f0cb5aaa703c1e9f708.min.js"
+  crossorigin="anonymous"
+></script>
+<script>
+  Sentry.onLoad(function() {
+    Sentry.init({
+        // You can add any additional configuration here
+      });
+  });
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Products - Alaala</title>
+    <meta property="og:title" content="Chapel - Alaala" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background-color: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <link rel="stylesheet" href="components/navbar.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+    <style>
+      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
+          display: flex;
+        }
+
+        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
+          transform: rotate(90deg);
+        }
+    </style>
+  </head>
+  <body>
+    <link rel="stylesheet" href="css/style.css" />
+    <div>
+      <link href="css/products.css" rel="stylesheet" />
+      <div id="navbar-placeholder"></div>
+      <div class="chapel-container">
+        <div class="container">
+          <h2 class="gallery5-text thq-heading-2">
+            <span>Products</span></h2>
+            <div id="addProductButtonPlaceholder"></div>
+          <input type="text" id="searchBox" placeholder="Search products..." />
+          <div id="productList">
+            <!-- Product Cards will appear here -->
+            <div id="product-cards-container"> 
+              <!-- Product Cards dynamically added by JavaScript -->
+            </div> 
+          </div> <!-- Add Product Modal (Only for Admins) -->
+          <div class="modal" id="productModal" style="display: none;">
+            <div class="modal-content">
+                <button class="close-btn" id="closeModalBtn">X</button>
+                <h2 class="modal-header">Add Product</h2>
+                <form id="addProductForm" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="productName" id="productName" placeholder="Product Name" required>
+                    <input type="text" name="productCategory" id="productCategory" placeholder="Category" required>
+                    <input type="text" name="productPrice" id="productPrice" placeholder="Price (₱X,XXX,XXX.XX)" required>
+                    <input type="text" name="productColor" id="productColor" placeholder="Color" required>
+                    <input type="text" name="productMaterial" id="productMaterial" placeholder="Material" required>
+                    <input type="text" name="productManufacturer" id="productManufacturer" placeholder="Manufacturer" required>
+                    <input type="text" name="productSize" id="productSize" placeholder="Size" required>
+                    <textarea name="productDescription" id="productDescription" placeholder="Product Description" maxlength="500" required oninput="updateCharacterCount()"></textarea>
+                    <p id="charCount">500 characters remaining</p>
+
+                    <!-- Image Input for File Upload -->
+                    <input type="file" name="productImages[]" id="imageInput" accept="image/*" multiple required>
+                    
+                    <!-- Image Preview Container -->
+                    <div class="image-preview-container" id="imagePreviewContainer"></div>
+        
+                    <button type="submit" class="submit-btn">Save Product</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Product Details Modal -->
+      <div id="productDetailsModal" class="product-details-modal">
+        <div class="modal-content">
+          <span class="close-btn" id="closeModalBtn">&times;</span>
+          <div class="product-details-container">
+                <!-- Left: Image Carousel with Thumbnails -->
+                <div class="product-images">
+                    <button class="prev-btn">&#8592;</button>
+                    <div class="main-carousel">
+                        <!-- Main Images dynamically added here -->
+                    </div>
+                    <button class="next-btn">&#8594;</button>
+                    <div class="thumbnail-carousel">
+                        <!-- Thumbnails dynamically added here -->
+                    </div>
+                </div>
+      
+                  <!-- Right: Product Information -->
+                  <div class="product-info">
+                      <h2><span id="productDetailName"></span></h2>
+                      <p><strong>Category:</strong> <span id="productDetailCategory"></span></p>
+                      <p><strong>Price:</strong><span id="productDetailPrice"></span></p>
+                      <p><strong>Color:</strong> <span id="productDetailColor"></span></p>
+                      <p><strong>Material:</strong> <span id="productDetailMaterial"></span></p>
+                      <p><strong>Manufacturer:</strong> <span id="productDetailManufacturer"></span></p>
+                      <p><strong>Size:</strong> <span id="productDetailSize"></span></p>
+                      <p><strong>Description:</strong> <span id="productDetailDescription"></span></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      </div>
+    <!-- Cart Modal -->
+<div id="cartModal" class="cart-modal" style="display: none;">
+  <div class="cart-modal-content">
+      <button id="closeCartModal" class="close-btn">X</button>
+      <h2>Your Shopping Cart</h2>
+      <div id="cartItemsContainer">
+          <!-- Products added to cart will appear here -->
+      </div>
+      <button id="checkoutButton">Proceed to Checkout</button>
+  </div>
+</div>
+<!-- Checkout Modal -->
+<div id="checkoutModal" class="checkout-modal" style="display: none;">
+  <div class="modal-content">
+    <button id="closeCheckoutModal" class="close-btn">X</button>
+    <h2>Checkout</h2>
+    <form id="checkoutForm">
+      <h3>Order Summary</h3>
+      <div id="checkoutSummaryContainer">
+        <!-- Cart summary will appear here -->
+    </div>
+      <label for="checkoutName">Name:</label>
+      <input type="text" id="checkoutName" name="name" required>
+
+      <label for="checkoutPhone">Phone Number:</label>
+      <input type="text" id="checkoutPhone" name="phone" required>
+
+      <label for="checkoutAddress">Address:</label>
+      <textarea id="checkoutAddress" name="address" required></textarea>
+
+      <label for="checkoutMunicipality">Municipality:</label>
+      <input type="text" id="checkoutMunicipality" name="municipality" required>
+
+      <label for="checkoutPaymentMode">Mode of Payment:</label>
+      <select id="checkoutPaymentMode" name="payment_mode" required>
+        <option value="Cash">Cash</option>
+        <option value="GCash">GCash</option>
+      </select>
+
+      <button type="submit" id="submitCheckout">Place Order</button>
+    </form>
+  </div>
+</div>
+
+      <footer class="homefooter-footer1 thq-section-padding homefooter-root-class-name6">
+          <div class="homefooter-max-width thq-section-max-width">
+            <div class="homefooter-content">
+              <div class="homefooter-newsletter">
+                <img
+                  alt="image"
+                  src="public/alaalafh%202-200h.png"
+                  class="homefooter-image"
+                />
+                <span class="homefooter-text">
+                  <span>Alaala Funeral Homes</span>
+                </span>
+              </div>
+              <div class="homefooter-links">
+                <div class="homefooter-column1">
+                  <strong class="thq-body-large homefooter-column1-title">
+                    <span>Contact Us</span>
+                  </strong>
+                  <div class="homefooter-footer-links">
+                    <span class="thq-body-small">
+                      <span>0908-821-3445</span>
+                    </span>
+                    <span><span>0917-313-2013</span></span>
+                  </div>
+                </div>
+                <div class="homefooter-column2">
+                  <strong class="thq-body-large homefooter-column2-title">
+                    <span>Visit Us</span>
+                  </strong>
+                  <div class="homefooter-footer-links1">
+                    <span class="thq-body-small">
+                      <span>Purok 7, 1091 Dalahican Road,</span>
+                    </span>
+                    <span class="thq-body-small">
+                      <span>Barangay Dalahican, Lucena City</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="homefooter-column3">
+                  <strong class="thq-body-large homefooter-social-link1-title">
+                    <span>Follow Us</span>
+                  </strong>
+                  <div class="homefooter-social-links">
+                    <a
+                      href="https://www.facebook.com/profile.l?id=100081437701072"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      class="homefooter-link"
+                    >
+                      <div class="homefooter-link1">
+                        <svg
+                          viewBox="0 0 877.7142857142857 1024"
+                          class="thq-icon-small"
+                        >
+                          <path
+                            d="M713.143 73.143c90.857 0 164.571 73.714 164.571 164.571v548.571c0 90.857-73.714 164.571-164.571 164.571h-107.429v-340h113.714l17.143-132.571h-130.857v-84.571c0-38.286 10.286-64 65.714-64l69.714-0.571v-118.286c-12-1.714-53.714-5.143-101.714-5.143-101.143 0-170.857 61.714-170.857 174.857v97.714h-114.286v132.571h114.286v340h-304c-90.857 0-164.571-73.714-164.571-164.571v-548.571c0-90.857 73.714-164.571 164.571-164.571h548.571z"
+                          ></path>
+                        </svg>
+                        <span class="thq-body-small">Facebook</span>
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@alaalafuneralhomes5309/videos"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      class="homefooter-link2"
+                    >
+                      <div class="homefooter-link3">
+                        <svg viewBox="0 0 1024 1024" class="thq-icon-small">
+                          <path
+                            d="M406.286 644.571l276.571-142.857-276.571-144.571v287.429zM512 152c215.429 0 358.286 10.286 358.286 10.286 20 2.286 64 2.286 102.857 43.429 0 0 31.429 30.857 40.571 101.714 10.857 82.857 10.286 165.714 10.286 165.714v77.714s0.571 82.857-10.286 165.714c-9.143 70.286-40.571 101.714-40.571 101.714-38.857 40.571-82.857 40.571-102.857 42.857 0 0-142.857 10.857-358.286 10.857v0c-266.286-2.286-348-10.286-348-10.286-22.857-4-74.286-2.857-113.143-43.429 0 0-31.429-31.429-40.571-101.714-10.857-82.857-10.286-165.714-10.286-165.714v-77.714s-0.571-82.857 10.286-165.714c9.143-70.857 40.571-101.714 40.571-101.714 38.857-41.143 82.857-41.143 102.857-43.429 0 0 142.857-10.286 358.286-10.286v0z"
+                          ></path>
+                        </svg>
+                        <span class="thq-body-small">Youtube</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="homefooter-credits">
+              <div class="thq-divider-horizontal"></div>
+              <div class="homefooter-row">
+                <span class="thq-body-small">
+                  <span>© 2024 Funeral Home. All Rights Reserved.</span>
+                </span>
+                <div class="homefooter-footer-links2">
+                  <span class="thq-body-small">
+                    <span>Privacy Policy</span>
+                  </span>
+                  <span class="thq-body-small">
+                    <span>Terms of Service</span>
+                  </span>
+                  <span class="thq-body-small">
+                    <span>Cookies Settings</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="js/navbar.js"></script>
+    <script src="js/script.js"></script>
+    <script defer=""src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+  </body>
+</html>

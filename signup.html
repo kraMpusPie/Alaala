@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Signup - Alaala</title>
+  <meta property="og:title" content="Signup - Alaala" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta property="twitter:card" content="summary_large_image" />
+
+  <style data-tag="reset-style-sheet">
+    html { line-height: 1.15; }
+    body { margin: 0; }
+    * { box-sizing: border-box; border-width: 0; border-style: solid; }
+    p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption { margin: 0; padding: 0; }
+    button { background-color: transparent; }
+    button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; }
+    button, select { text-transform: none; }
+    button, [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; }
+    button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+    button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus { outline: 1px dotted ButtonText; }
+    a { color: inherit; text-decoration: inherit; }
+    input { padding: 2px 4px; }
+    img { display: block; }
+    html { scroll-behavior: smooth; }
+  </style>
+
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: Inter;
+      font-size: 16px;
+    }
+    body {
+      font-weight: 400;
+      font-style: normal;
+      text-decoration: none;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1.15;
+      color: var(--dl-color-theme-neutral-dark);
+      background-color: var(--dl-color-theme-neutral-light);
+      fill: var(--dl-color-theme-neutral-dark);
+      background-image: url('https://your-image-url.com/original-background.jpg'); /* Add your original background image URL here */
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/animate.css@4.1.1/animate.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+    data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+    data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap"
+    data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+  />
+  <style>
+    [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
+      display: flex;
+    }
+    [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
+      transform: rotate(90deg);
+    }
+    .input-error {
+      border-color: red;
+    }
+    .input-success {
+      border-color: green;
+    }
+    .thq-input {
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      padding: 8px;
+      transition: border-color 0.3s ease;
+    }
+    .password-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 690px;
+    }
+    .password-container input {
+      width: 100%;
+      padding: 8px;
+      padding-right: 50px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .password-container button {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: inherit;
+    }
+    .password-container button:focus {
+      outline: none;
+    }
+
+    /* Additional CSS to forcefully remove browser default icons */
+    .password-container input::-ms-reveal,
+    .password-container input::-ms-clear {
+      display: none;
+    }
+
+    .sign-up1-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #147487;
+      color: #fff;
+      text-align: center;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .sign-up1-button:hover {
+      background-color: #034957;
+    }
+    .sign-up1-button:focus {
+      outline: none;
+    }
+    .sign-up1-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .sign-up1-button .thq-button-text {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* Password validation requirements */
+    .password-requirements {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .password-requirements ul {
+      list-style: none;
+      padding: 0;
+    }
+    .password-requirements li {
+      margin-bottom: 5px;
+    }
+    .password-requirements .valid {
+      color: green;
+    }
+    .password-requirements .invalid {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <link rel="stylesheet" href="css/style.css" />
+  <div>
+    <link href="css/signup.css" rel="stylesheet" />
+    <div class="signup-container">
+      <div class="sign-up1-container sign-up1-root-class-name">
+        <div class="sign-up1-max-width thq-section-max-width">
+          <div class="sign-up1-form-root thq-section-padding">
+            <div class="sign-up1-form">
+              <div class="sign-up1-title-root">
+                <h2 class="thq-heading-2">
+                  <span>Welcome to Alaala Funeral Homes</span>
+                </h2>
+                <div class="sign-up1-have-an-account-login"></div>
+              </div>
+              <form class="sign-up1-form1" onsubmit="return validatePasswords()" action="signup.php" method="POST">
+                <div class="sign-up1-email">
+                  <label for="thq-sign-up-1-email" class="thq-body-large">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="thq-sign-up-1-email"
+                    name="email"
+                    required="true"
+                    placeholder="Email address"
+                    class="sign-up1-textinput thq-input thq-body-large"
+                  />
+                </div>
+                <div class="sign-up1-username">
+                  <label for="thq-sign-up-1-password" class="thq-body-large">
+                    Password
+                  </label>
+                  <div class="password-container">
+                    <input
+                      type="password"
+                      id="thq-sign-up-1-password"
+                      required="true"
+                      name="password"
+                      placeholder="Password"
+                      class="sign-up1-textinput thq-input thq-body-large"
+                    />
+                    <button type="button" onclick="togglePasswordVisibility('thq-sign-up-1-password', this)">Show</button>
+                  </div>
+                </div>
+                <div class="sign-up1-password">
+                  <div class="sign-up1-textfield">
+                    <div class="sign-up1-container1">
+                      <label
+                        for="thq-sign-up-1-retype-password"
+                        class="thq-body-large"
+                      >
+                        Re-type Password
+                      </label>
+                    </div>
+                  </div>
+                  <div class="password-container">
+                    <input
+                      type="password"
+                      id="thq-sign-up-1-retype-password"
+                      required="true"
+                      name="c_password"
+                      placeholder="Re-type Password"
+                      class="sign-up1-textinput2 thq-input thq-body-large"
+                    />
+                    <button type="button" onclick="togglePasswordVisibility('thq-sign-up-1-retype-password', this)">Show</button>
+                  </div>
+                  <div class="password-requirements">
+                    <ul>
+                      <li id="length" class="invalid">• Minimum length of 8 characters</li>
+                      <li id="uppercase" class="invalid">• At least one uppercase letter</li>
+                      <li id="lowercase" class="invalid">• At least one lowercase letter</li>
+                      <li id="number" class="invalid">• At least one number</li>
+                      <li id="special" class="invalid">• At least one special character</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sign-up1-container7">
+                  <input
+                    type="checkbox"
+                    id="thq-sign-up-1-newsletter"
+                    checked="true"
+                    class="sign-up1-checkbox"
+                  />
+                  <label
+                    for="thq-sign-up-1-newsletter"
+                    class="thq-body-small"
+                  >
+                    <span>Subscribe to newsletter</span>
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  class="sign-up1-button thq-button thq-button-primary"
+                >
+                  <span class="thq-button-text">Sign up</span>
+                </button>
+                <div class="sign-up1-have-an-account-login1">
+                  <a href="login.html" class="sign-up1-navlink">
+                    <p class="sign-up1-text15 thq-body-large">
+                      <span>Already have an account?</span>
+                      <span class="sign-up1-text17">Sign in</span>
+                    </p>
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="sign-up1-container8">
+            <img
+              alt="image"
+              src="https://images.unsplash.com/photo-1484619817839-dfc3452be01f?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fGZ1bmVyYWx8ZW58MHx8fHwxNzIwMjQ4MTI0fDA&amp;ixlib=rb-4.0.3&amp;h=800"
+              loading="eager"
+              class="sign-up1-image"
+            />
+          </div>
+        </div>
+      </div>
+      <a href="index.html" class="signup-navlink">Back to Homepage</a>
+    </div>
+  </div>
+  <script
+    defer=""
+    src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+  ></script>
+  <script>
+    function togglePasswordVisibility(id, button) {
+      var input = document.getElementById(id);
+      if (input.type === 'password') {
+        input.type = 'text';
+        button.textContent = 'Hide';
+      } else {
+        input.type = 'password';
+        button.textContent = 'Show';
+      }
+    }
+
+    function validatePasswords() {
+  const password = document.getElementById('thq-sign-up-1-password');
+  const retypePassword = document.getElementById('thq-sign-up-1-retype-password');
+  const passwordValue = password.value;
+  const retypePasswordValue = retypePassword.value;
+
+  // Password validation requirements
+  const minLength = 8;
+  const uppercase = /[A-Z]/;
+  const lowercase = /[a-z]/;
+  const number = /[0-9]/;
+  const specialChar = /[!@%^&*(),.?":{}|<>]/;
+
+  let valid = true;
+
+  // Check if passwords match
+  if (passwordValue !== retypePasswordValue) {
+    retypePassword.classList.add('input-error');
+    retypePassword.classList.remove('input-success');
+    valid = false;
+  } else {
+    retypePassword.classList.add('input-success');
+    retypePassword.classList.remove('input-error');
+  }
+
+  // Check password length and complexity
+  document.getElementById('length').classList.toggle('valid', passwordValue.length >= minLength);
+  document.getElementById('length').classList.toggle('invalid', passwordValue.length < minLength);
+
+  document.getElementById('uppercase').classList.toggle('valid', uppercase.test(passwordValue));
+  document.getElementById('uppercase').classList.toggle('invalid', !uppercase.test(passwordValue));
+
+  document.getElementById('lowercase').classList.toggle('valid', lowercase.test(passwordValue));
+  document.getElementById('lowercase').classList.toggle('invalid', !lowercase.test(passwordValue));
+
+  document.getElementById('number').classList.toggle('valid', number.test(passwordValue));
+  document.getElementById('number').classList.toggle('invalid', !number.test(passwordValue));
+
+  document.getElementById('special').classList.toggle('valid', specialChar.test(passwordValue));
+  document.getElementById('special').classList.toggle('invalid', !specialChar.test(passwordValue));
+
+  return valid && passwordValue === retypePasswordValue;
+}
+
+// Attach the event listener to password inputs
+document.getElementById('thq-sign-up-1-password').addEventListener('input', validatePasswords);
+document.getElementById('thq-sign-up-1-retype-password').addEventListener('input', validatePasswords);
+
+  </script>
+</body>
+</html>
